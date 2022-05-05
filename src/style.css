@@ -1,0 +1,12 @@
+.App2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: red;
+}
+.Son{
+    background-color: gray;
+}
+.Grandson{
+    background-color: blue;
+}
