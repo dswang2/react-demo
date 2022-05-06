@@ -13,7 +13,7 @@ const AppComponentDemo = () => {
 class Son extends React.Component {
     constructor() {
         super();
-        this.state = {n: 0,m:0}
+        this.state = {n: 0, m: 0}
     }
 
     add() {
@@ -22,6 +22,7 @@ class Son extends React.Component {
             return {n};
         }); // 修改内部数据
     }
+
     // 推荐写法
     addm = () => {
         this.setState(state => {
@@ -35,10 +36,12 @@ class Son extends React.Component {
             <div className="Son">
                 儿子n:{this.state.n}
                 我爸爸对我说{this.props.messageForSon}
-                <button onClick={() => this.add()}>+1</button>{/*注意事件函数的写法*/}
+                <button onClick={() => this.add()}>+1</button>
+                {/*注意事件函数的写法*/}
                 儿子m:{this.state.m}
                 {/*<button onClick={() => this.addm()}>+1</button>*/}
-                <button onClick={this.addm}>+1</button> {/*注意事件函数的写法*/}
+                <button onClick={this.addm}>+1</button>
+                {/*注意事件函数的写法*/}
                 <Grandson messageForGrandson="孙子你好"/>
             </div>
         )
@@ -85,20 +88,31 @@ const Grandson = (props) => {
 // }
 //
 class Welcome extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {n: 0};
     }
 
-    render() {
-        return <div>
-            <div>内部数据{this.state.n}</div>
-            <div>外部数据{this.props.name}</div>
-            <button onClick={this.add}>确定</button>
-        </div>
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+    }
+    componentDidMount() {
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+    }
+    componentWillUnmount() {
     }
 
-    add = ()=> {
+    render() {
+        return (
+            <div>
+                <div>内部数据{this.state.n}</div>
+                <div>外部数据{this.props.name}</div>
+                <button onClick={this.add}>确定</button>
+            </div>
+        )
+    }
+
+    add = () => {
         this.setState(state => {
             const n = state.n + 1;
             return {...state, n};
