@@ -61,7 +61,7 @@ const FunctionComponentAdd = (props) => {
     }, [n]);
     useUpdate(() => {
         console.log("内部数据n更新了");
-    },n);
+    }, n);
     React.useEffect(() => {
         console.log("模拟生命周期方法 onComponentDidMount 2，第一次渲染");
         return () => {
