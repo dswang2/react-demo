@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css"
+import useUpdate from "./useUpdate";
 
 const AppFuComponentDemo = (props) => {
     return (
@@ -46,18 +47,6 @@ class ClassComponentAdd extends React.Component{
         )
     }
 }
-// 内部数据n变化，让n计数器发生变化
-const useUpdate = (fn, data) => {
-    const [count, setCount] = React.useState(0);
-    React.useEffect(() => {
-        setCount(nUpdateCount => nUpdateCount + 1);
-    }, [data]);
-    React.useEffect(() => {
-        if(count > 1){
-            fn();
-        }
-    },[count]);
-};
 
 const FunctionComponentAdd = (props) => {
     const [n, setN] = React.useState(props.n);
