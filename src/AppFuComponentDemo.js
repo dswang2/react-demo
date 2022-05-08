@@ -49,6 +49,7 @@ class ClassComponentAdd extends React.Component{
 
 const FunctionComponentAdd = (props) => {
     const [n, setN] = React.useState(props.n);
+    const [nUpdateCount, setNUpdateCount] = React.useState(0);
     React.useEffect(() => {
         console.log("模拟类组件生命周期方法 onComponentDidMount 1");
     },[]);
@@ -58,6 +59,15 @@ const FunctionComponentAdd = (props) => {
     React.useEffect(() => {
         console.log("模拟生命周期方法 onComponentDidUpdate，属性n变更");
     },[n]);
+    // 内部数据n变化，让n计数器发生变化
+    React.useEffect(() => {
+        setNUpdateCount(nUpdateCount => nUpdateCount + 1);
+    },[n]);
+    React.useEffect(() => {
+        if(nUpdateCount > 1){
+            console.log("内部数据n更新了");
+        }
+    },[nUpdateCount])
     React.useEffect(() => {
         console.log("模拟生命周期方法 onComponentDidMount 2，第一次渲染");
         return () => {
