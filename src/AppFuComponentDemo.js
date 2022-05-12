@@ -4,7 +4,7 @@ import useUpdate from "./useUpdate";
 
 const AppFuComponentDemo = (props) => {
     return (
-        <div className="AppFuComponentDemo" >
+        <div className="AppFuComponentDemo">
             <ClassComponentAdd n={10}/>
             {props.message}
             <FnSon message="父亲传给儿子的数据"/>
@@ -16,28 +16,42 @@ const FnSon = props => {
     const [n, setN] = React.useState(true);
     return (<div className="FnSon">
         {/*让FunctionComponentAdd显示完整生命周期方法*/}
-        <button onClick={()=>{setN(!n)}}>{props.message}</button>
+        <button onClick={() => {
+            setN(!n)
+        }}>{props.message}</button>
         {n && <FunctionComponentAdd n={100}/>}
         <FnGrandSon message="儿子传给孙子的数据"/>
     </div>)
 };
 
 const FnGrandSon = function (props) {
+    const [user, setUser] = React.useState({name: "dsw", age: 66});
+    const onAgeChange = () => {
+        setUser({...user, age: Number(user.age) + 1});
+        console.log(user);
+    }
     return (
-        <div className={"FnGrandSon"}>{props.message}</div>
+        <>
+            <div className={"FnGrandSon"}>{props.message}</div>
+            <div>{user.name}</div>
+            <div>{user.age}</div>
+            <button onClick={onAgeChange}>年龄++</button>
+        </>
     );
 }
 
-class ClassComponentAdd extends React.Component{
+class ClassComponentAdd extends React.Component {
     constructor(props) {
         super(props);
         this.state = {n: props.n};
     }
+
     onclick = () => {
         this.setState((state) => {
-            return {n: state.n +1}
+            return {n: state.n + 1}
         })
     };
+
     render() {
         return (
             <div>
@@ -52,8 +66,8 @@ const FunctionComponentAdd = (props) => {
     const [n, setN] = React.useState(props.n);
     React.useEffect(() => {
         console.log("模拟类组件生命周期方法 onComponentDidMount 1");
-    },[]);
-    React.useEffect(()=>{
+    }, []);
+    React.useEffect(() => {
         console.log("模拟类组件生命周期方法 onComponentDidUpdate，任意属性变更");
     })
     React.useEffect(() => {
@@ -69,7 +83,7 @@ const FunctionComponentAdd = (props) => {
         };
     })
     const onclick = () => {
-        setN(n+1);
+        setN(n + 1);
     };
     return (
         <div>{n}
@@ -77,7 +91,6 @@ const FunctionComponentAdd = (props) => {
         </div>
     );
 }
-
 
 
 export default AppFuComponentDemo;

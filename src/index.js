@@ -4,11 +4,15 @@ import AppModule from "./App"
 import AppComponentDemo from "./AppComponentDemo";
 import AppLifeDemo from "./AppLifeDemo";
 import AppFuComponentDemo from "./AppFuComponentDemo"
+import AppHooksDemo from "./AppHooksDemo";
+import AppUseReducerDemo from "./AppUseReducerDemo";
 
 const root = document.getElementById('root');
 // ReactDOM.render(<AppComponentDemo />, root)
 // ReactDOM.render(<AppLifeDemo />, root)
-ReactDOM.render(<AppFuComponentDemo message="测试" />, root)
+// ReactDOM.render(<AppFuComponentDemo message="测试" />, root)
+// ReactDOM.render(<AppHooksDemo/>, root)
+ReactDOM.render(<AppUseReducerDemo/>, root)
 
 let n = 100;
 const APP = () => React.createElement("div", {className: "red"},
