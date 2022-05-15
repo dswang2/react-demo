@@ -7,7 +7,7 @@ import AppFuComponentDemo from "./AppFuComponentDemo"
 import AppHooksDemo from "./AppHooksDemo";
 import AppUseReducerDemo from "./AppUseReducerDemo";
 import AppFormReducerDemo from "./AppFormReducerDemo";
-import AppReducerForRedux from "./AppReducerForRedux";
+import AppReducerForRedux from "./reducer-for-redux/AppReducerForRedux";
 
 const root = document.getElementById('root');
 // ReactDOM.render(<AppComponentDemo />, root)
