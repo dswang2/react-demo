@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom';
 import AppModule from "./App"
 import AppComponentDemo from "./AppComponentDemo";
 import AppLifeDemo from "./AppLifeDemo";
-import App from "./AppFuComponentDemo"
+// import App from "./AppFuComponentDemo"
 import AppHooksDemo from "./AppHooksDemo";
 import AppUseReducerDemo from "./AppUseReducerDemo";
 import AppFormReducerDemo from "./AppFormReducerDemo";
 // import AppReducerForRedux from "./reducer-for-redux/AppReducerForRedux";
 // import App from "./use-context-demo/use-context-demo";
+import App from "./use-layout-effect-demo"
 
 const root = document.getElementById('root');
 // ReactDOM.render(<AppComponentDemo />, root)
