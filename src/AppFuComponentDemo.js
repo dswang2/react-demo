@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css"
 import useUpdate from "./useUpdate";
 
@@ -63,25 +63,23 @@ class ClassComponentAdd extends React.Component {
 }
 
 const FunctionComponentAdd = (props) => {
-    const [n, setN] = React.useState(props.n);
-    React.useEffect(() => {
-        console.log("模拟类组件生命周期方法 onComponentDidMount 1");
-    }, []);
-    React.useEffect(() => {
-        console.log("模拟类组件生命周期方法 onComponentDidUpdate，任意属性变更");
+    const [n, setN] = useState(props.n);
+    useEffect(() => {
+        console.log("模拟类组件生命周期方法 componentDidMount");
+        return () => {
+            console.log("模拟生命周期方法 componentWilUnMount");
+        }
+    }, []); // 数组内的变量变化时执行，包含第一次得到值的时候，如果数组为空，就只第一次执行
+    useEffect(() => {
+        console.log("模拟类组件生命周期方法 componentDidUpdate，任意属性变更");
     })
-    React.useEffect(() => {
-        console.log("模拟生命周期方法 onComponentDidUpdate，属性n变更");
+    useEffect(() => {
+        console.log("模拟生命周期方法 componentDidUpdate，属性n变更");
     }, [n]);
+    // 自定义hook
     useUpdate(() => {
         console.log("内部数据n更新了");
     }, n);
-    React.useEffect(() => {
-        console.log("模拟生命周期方法 onComponentDidMount 2，第一次渲染");
-        return () => {
-            console.log("模拟生命周期方法 onComponentWilUnMount");
-        };
-    })
     const onclick = () => {
         setN(n + 1);
     };
