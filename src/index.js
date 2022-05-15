@@ -9,7 +9,9 @@ import AppUseReducerDemo from "./AppUseReducerDemo";
 import AppFormReducerDemo from "./AppFormReducerDemo";
 // import AppReducerForRedux from "./reducer-for-redux/AppReducerForRedux";
 // import App from "./use-context-demo/use-context-demo";
-import App from "./use-layout-effect-demo"
+// import App from "./use-layout-effect-demo"
+import App from "./use-memo-demo"
+import { createRoot } from "react-dom/client";
 
 const root = document.getElementById('root');
 // ReactDOM.render(<AppComponentDemo />, root)
@@ -19,7 +21,8 @@ const root = document.getElementById('root');
 // ReactDOM.render(<AppUseReducerDemo/>, root)
 // ReactDOM.render(<AppFormReducerDemo/>, root)
 // ReactDOM.render(<AppReducerForRedux/>, root)
-ReactDOM.render(<App/>, root)
+// ReactDOM.render(<App/>, root) // 这是React17的用法
+createRoot(root).render(<App/>);  // 这是React18的用法
 
 let n = 100;
 const APP = () => React.createElement("div", {className: "red"},

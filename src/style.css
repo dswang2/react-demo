@@ -1,3 +1,14 @@
+.H1{
+    background-color: lightskyblue;
+    margin: 10px;
+    padding: 10px;
+}
+.H2{
+    background-color: lightgray;
+    margin: 10px;
+    padding: 10px;
+}
+
 .App2{
     display: flex;
     flex-wrap: wrap;
